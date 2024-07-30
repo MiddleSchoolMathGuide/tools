@@ -36,8 +36,8 @@ REM Installing other needed packages
 echo Installing choco, git, make, fnm, and Python
 winget install -e --id Chocolatey.Chocolatey
 winget install -e --id Git.Git
-winget install -e --id GnuWin32.Make
-winget install -e --id Python.Python.3
+winget install -e --id ezwinports.make
+winget install -e --id Python.Python.3.12
 winget install -e --id Schniz.fnm
 echo Installation completed.
 
