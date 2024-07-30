@@ -27,6 +27,8 @@ if /i "%SKIP_INSTALL%"=="y" (
     echo Cleaning up...
     del "%MONGODB_MSI%"
 
+    REM Return to the calling directory
+    cd /d %~dp0
     echo MongoDB installation completed.
 )
 
