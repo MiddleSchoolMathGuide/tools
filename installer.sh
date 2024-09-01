@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DOMAIN="msmathguide.education"
+
 sudo apt-get install gnupg curl
 curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
    sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
@@ -18,5 +20,13 @@ git submodule update --init --recursive
 sudo npm cache clean -f
 sudo npm install -g n
 sudo n latest
+
+sudo apt install certbot
+
+sudo ufw allow 443
+sudo certbot certonly --standalone -d $DOMAIN
+
+ln -s /etc/letsencrypt/live/$DOMAIN/fullchain.pem cert.pem
+ln -s /etc/letsencrypt/live/$DOMAIN/privkey.pem key.pem
 
 make install
